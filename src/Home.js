@@ -61,12 +61,10 @@ function Home() {
         //console.log(document.querySelector('#searchText').value);
         const sValue = document.querySelector('#searchText').value;
         const sValueArray = (sValue.trim()).replace(" ", " AND ");
-
         
         let requesturl = "https://newsapi.org/v2/everything?q=" + sValue + "&searchIn=title" + "&from=2024-04-01&sortBy=popularity&apiKey=" + apikey + "&pageSize=10";
 
         axios.get(requesturl).then((response) => {
-          console.log(response.data);
           document.querySelector('#searchResults').innerHTML = "";
           let innerhtml = "<ul>";
           for (let i=0; i<response.data.articles.length; i++)
@@ -78,12 +76,8 @@ function Home() {
           //setResultValue(innerhtml);
           document.querySelector('#searchResults').innerHTML = innerhtml;
         });
-
-
-
       }
     }
-  
   });
 
   return (
@@ -112,18 +106,12 @@ function Home() {
       </div>
       <div className="content">
       <p id="searchResults"></p>
-
       <h1>Lorem Ipsum Text</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat eget mi ut suscipit. Duis convallis quis dolor vitae pretium. Duis sollicitudin porta ultrices. Aenean libero erat, consequat ut dapibus in, tristique sit amet ex. Etiam in ipsum et felis ultricies tristique et vitae augue. Duis convallis arcu non sapien pharetra, vitae pharetra elit commodo. Phasellus at diam volutpat, feugiat orci non, dignissim justo. Morbi vestibulum blandit elit sed posuere. Cras facilisis egestas sem. Cras porta iaculis ex. Curabitur bibendum nisi vel massa dignissim, non rutrum mi convallis. Donec bibendum eget massa sit amet elementum. Donec at tristique odio, nec blandit nunc. Vestibulum id lorem lobortis elit consectetur suscipit tincidunt ac enim. Curabitur maximus ac neque ac laoreet.</p>
       <p>Maecenas scelerisque elit in aliquam fermentum. Proin et leo dolor. Donec lacus tellus, ullamcorper at magna eget, facilisis consectetur diam. Sed ac turpis gravida, rhoncus risus a, maximus enim. Pellentesque cursus, urna ac semper gravida, mi tortor porttitor ex, nec placerat enim urna a eros. Ut efficitur suscipit suscipit. Cras pharetra condimentum elit, eget rutrum risus pretium sit amet. Vestibulum congue magna eros, at cursus turpis vestibulum non. Etiam pellentesque facilisis nulla, a pretium tortor consectetur at. In tristique nec velit nec luctus. Nullam rutrum massa nec laoreet facilisis. Curabitur et nisi id metus porta rhoncus vitae et tortor. Fusce ullamcorper efficitur augue non scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      
       <p>Phasellus pretium risus ac velit aliquet scelerisque ac vitae lacus. Maecenas a elit tincidunt, egestas turpis non, aliquam dui. Etiam semper magna eu porttitor suscipit. Duis finibus nulla et eros dapibus, ac convallis arcu condimentum. Vestibulum convallis a nunc sit amet vehicula. Morbi porttitor condimentum sapien non efficitur. Cras rutrum orci eleifend eros semper, sit amet commodo libero convallis.</p>
-      
       <p>Fusce feugiat id magna at consequat. Cras dictum rutrum rhoncus. Proin non nisl lectus. Pellentesque eget convallis mi. Pellentesque sagittis est et est elementum pharetra. Donec vehicula, turpis varius tincidunt pretium, tortor ligula tempor turpis, vitae sagittis dui quam ac massa. Vivamus risus augue, pharetra a sem auctor, interdum suscipit nibh. Suspendisse eu arcu non ligula aliquam maximus. Vestibulum nisi sapien, venenatis sit amet lorem eu, imperdiet efficitur sapien.</p>
-      
       <p>Vivamus blandit laoreet dolor eget dictum. Morbi in felis nisi. Morbi sit amet urna feugiat, molestie arcu ac, consectetur dui. Fusce auctor, tellus vel maximus aliquet, arcu odio placerat nisi, pulvinar tempor libero justo id ante. Donec elementum turpis ut dignissim blandit. Sed sit amet consectetur neque, a condimentum lectus. Morbi condimentum et mauris congue hendrerit. Nulla est enim, pharetra nec nisl quis, ultrices gravida arcu. Praesent pretium metus eget nisl elementum, vel blandit felis molestie. Suspendisse et porta odio, vel condimentum lorem. Sed hendrerit, massa id semper gravida, est diam vehicula nulla, vel faucibus enim massa eu neque. Mauris metus orci, tincidunt at sem sit amet, aliquet maximus lacus.</p>
-
-      
       </div>
     </div>
   );
