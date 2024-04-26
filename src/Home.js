@@ -65,8 +65,8 @@ function Home() {
         const month = today.getMonth()+1;
         const year = today.getFullYear();
         let requesturl = "https://newsapi.org/v2/everything?q=" + sValueAll + "&searchIn=title" +
-        "&from=" + year + "-" + (month < 10 ? '0' : '') + month +"-01&sortBy=popularity&apiKey=" 
-        + apikey + "&pageSize=10";
+        "&from=" + year + "-" + (month < 10 ? '0' : '') + month +"-01&apiKey=" 
+        + apikey + "&pageSize=10&sortBy=publishedAt";
 
         axios.get(requesturl).then((response) => {
           document.querySelector('#searchResults').innerHTML = "";
@@ -74,7 +74,9 @@ function Home() {
           for (let i=0; i<response.data.articles.length; i++)
           {
             innerhtml += "<li>"+
-            "<a href='"+response.data.articles[i].url+"'>"+response.data.articles[i].title+"</a> • Author: "+response.data.articles[i].author+"</li>";
+            "<a href='"+response.data.articles[i].url+"'>"+response.data.articles[i].title+
+            "</a> • Author: "+response.data.articles[i].author+ " • " + response.data.articles[i].publishedAt.split('T')[0] +
+            "</li>";
           }
           innerhtml += "</ul>";
           //setResultValue(innerhtml);
