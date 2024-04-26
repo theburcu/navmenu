@@ -187,6 +187,7 @@
     }
 
     .header.open .nav {
+        position: fixed;
         top: 50px;
         opacity:1;
         visibility: visible;
@@ -194,7 +195,8 @@
         display: flex;
         flex-direction: column;
         background: #fff;
-        width: 100%;
+        width: 50%;
+        height: 100%;
         padding: 40px;
         z-index: 10;
     }
