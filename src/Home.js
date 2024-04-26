@@ -58,11 +58,15 @@ function Home() {
       var keyCode = e.code || e.key;
       if(keyCode == 'Enter' || keyCode == 'NumpadEnter')
       {
-        //console.log(document.querySelector('#searchText').value);
         const sValue = document.querySelector('#searchText').value;
-        const sValueArray = (sValue.trim()).replace(" ", " AND ");
-        
-        let requesturl = "https://newsapi.org/v2/everything?q=" + sValue + "&searchIn=title" + "&from=2024-04-01&sortBy=popularity&apiKey=" + apikey + "&pageSize=10";
+        const sValue1 = (sValue.trim()).replace("  ", " ");
+        const sValueAll = (sValue1.trim()).replace(" ", " AND ");
+        const today = new Date();
+        const month = today.getMonth()+1;
+        const year = today.getFullYear();
+        let requesturl = "https://newsapi.org/v2/everything?q=" + sValueAll + "&searchIn=title" +
+        "&from=" + year + "-" + (month < 10 ? '0' : '') + month +"-01&sortBy=popularity&apiKey=" 
+        + apikey + "&pageSize=10";
 
         axios.get(requesturl).then((response) => {
           document.querySelector('#searchResults').innerHTML = "";
